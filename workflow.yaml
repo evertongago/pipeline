@@ -1,0 +1,36 @@
+jobs:
+  - pysparkJob:
+      mainPythonFileUri: file:///pipeline/src/deea/jobs/job1.py
+    stepId: job1
+  - pysparkJob:
+      mainPythonFileUri: file:///pipeline/src/deea/jobs/job2.py
+    stepId: job2
+placement:
+  managedCluster:
+    clusterName: deeapipeline
+    config:
+      gceClusterConfig:
+        zoneUri: us-east1-b
+        serviceAccountScopes:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/cloud.useraccounts.readonly
+        - https://www.googleapis.com/auth/devstorage.read_write
+        - https://www.googleapis.com/auth/logging.write
+      softwareConfig:
+        properties:
+          spark:spark.executor.memory: 4gb
+          spark:spark.driver.maxResultSize: 4gb
+          dataproc:jobs.file-backed-output.enable: 'true'
+          dataproc:dataproc.logging.stackdriver.enable: 'true'
+          dataproc:dataproc.monitoring.stackdriver.enable: 'true'
+      initializationActions:
+      - executableFile: gs://deeapipe/pipeline/scripts/init.sh
+      masterConfig:
+        machineTypeUri: n1-standard-2
+      workerConfig:
+        machineTypeUri: n1-standard-2
+        numInstances: 2
+      secondaryWorkerConfig:
+        machineTypeUri: n1-standard-2
+        numInstances: 2
+        isPreemptible: true
