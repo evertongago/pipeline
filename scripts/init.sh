@@ -25,7 +25,7 @@ PYTHON_VERSION="$(${PYTHON} --version 2>&1 | cut -d ' ' -f 2)"
 
 pip install --upgrade pip
 
-gsutil cp -r gs://deeapipe/pipeline .
+gsutil cp -r gs://krtn/pipeline .
 cd pipeline
 pip install -r requirements.txt
 pip install -e .

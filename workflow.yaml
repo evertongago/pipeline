@@ -24,7 +24,7 @@ placement:
           dataproc:dataproc.logging.stackdriver.enable: 'true'
           dataproc:dataproc.monitoring.stackdriver.enable: 'true'
       initializationActions:
-      - executableFile: gs://deeapipe/pipeline/scripts/init.sh
+      - executableFile: gs://krtn/pipeline/scripts/init.sh
       masterConfig:
         machineTypeUri: n1-standard-2
       workerConfig:
