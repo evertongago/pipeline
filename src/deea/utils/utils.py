@@ -1,6 +1,6 @@
 import re, json, unicodedata
 
-def strip_test(text):
+def strip_text(text):
     text = unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode('utf-8')
     text = re.sub('[^a-z0-9 ]+', '', str(text).lower())
     text = re.sub(' +', ' ', text)

@@ -2,7 +2,7 @@ from google.cloud import bigquery
 
 class BigQueryManager:
 
-    def __init__(self, dataset='refined', in_mode='daily'):
+    def __init__(self, dataset='reviews', in_mode='daily'):
         # Create client connection.
         self.client = bigquery.Client()
 

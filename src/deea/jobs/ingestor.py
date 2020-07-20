@@ -1,7 +1,9 @@
 import sys
 
 from datetime import datetime
+
 from pyspark.sql import SparkSession
+
 from src.deea.utils import utils
 from src.deea.utils.api import Ingestor
 from src.deea.utils.stmanager import StorageManager

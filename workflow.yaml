@@ -1,11 +1,19 @@
 jobs:
   - pysparkJob:
       args:
-      - 'g1'
-      - 'com.globo.g1.app'
+      - 'nubank'
+      - 'com.nu.production'
       - 'batch'
       mainPythonFileUri: file:///pipeline/src/deea/jobs/ingestor.py
     stepId: ingestor
+  - pysparkJob:
+      args:
+      - 'nubank'
+      - 'batch'
+      mainPythonFileUri: file:///pipeline/src/deea/jobs/processor.py
+    prerequisiteStepIds:
+      - ingestor
+    stepId: processor
 placement:
   managedCluster:
     clusterName: deeapipeline
