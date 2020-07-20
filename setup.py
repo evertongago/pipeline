@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='pipeline',
     version='0.0.1',
-    author='Exemplo',
+    author='Everton Gago',
     author_email='everton.gjunior@gmail.com',
     license='Private Software',
     packages=['src.deea','src.deea.jobs'],

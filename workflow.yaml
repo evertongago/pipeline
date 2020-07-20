@@ -1,10 +1,11 @@
 jobs:
   - pysparkJob:
-      mainPythonFileUri: file:///pipeline/src/deea/jobs/job1.py
-    stepId: job1
-  - pysparkJob:
-      mainPythonFileUri: file:///pipeline/src/deea/jobs/job2.py
-    stepId: job2
+      args:
+      - 'g1'
+      - 'com.globo.g1.app'
+      - 'batch'
+      mainPythonFileUri: file:///pipeline/src/deea/jobs/ingestor.py
+    stepId: ingestor
 placement:
   managedCluster:
     clusterName: deeapipeline
